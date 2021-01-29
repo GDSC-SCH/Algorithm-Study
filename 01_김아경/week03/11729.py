@@ -10,4 +10,4 @@ def hanoi(n, start, end):
 result = hanoi(N, 1, 3)
 print(len(result))
 for a, b in result:
-    print(a, b)
+    print(a, b) 
