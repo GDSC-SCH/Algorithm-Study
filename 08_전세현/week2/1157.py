@@ -4,8 +4,6 @@ n=sys.stdin.readline().strip().upper()
 
 new_n=list(set(n))
 
-print(new_n)
-
 li=[]
 for x in new_n:
     count=n.count(x)
