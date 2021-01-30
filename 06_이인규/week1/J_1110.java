@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class J_1110 {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
@@ -16,5 +15,6 @@ public class J_1110 {
             }
         }
         System.out.println(cnt);
+        sc.close();
         }
 }

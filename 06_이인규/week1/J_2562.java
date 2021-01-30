@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class J_2562 {
 	
 	public static void main(String args[]) {
@@ -13,6 +12,6 @@ public class J_2562 {
 	
 	System.out.println(max);
 	System.out.println(a.indexOf(max)+1);
-		
+    sc.close();
 	}
 }
