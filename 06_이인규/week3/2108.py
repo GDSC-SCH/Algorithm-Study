@@ -16,16 +16,21 @@ for _ in range(cnt):
 
 print(*d)
 
-e = []
+count = 0; win = 0; e = []
 for i in c:
-    if i not in e:
-        toss = [i,1]
-        e.append(toss)
-    else:
-        e[e.index(i)][1] += 1
+    count = c.count(i)
+    if count > win:
+        win = count
+        del e[0:len(e)-1]
+        e.append(i)
+    elif count == win:
+        e.append(i)
 
-print(e)
+k = list(set(e))
+k.sort()
 
+if len(k) > 1:
+    print(k[1])
+else:
+    print(*k)
 print(max(c)-min(c))
-
-# 푸는중
