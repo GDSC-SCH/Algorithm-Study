@@ -1,5 +1,5 @@
 //15-5 11399
-//var input = require('fs').readFileSync('/dev/stdin'); //임시 입력
+//var input = require('fs').readFileSync('/dev/stdin'); //임시 입력 처리
 
 const N = 5;
 var arr = [3, 1, 4, 3, 2];
