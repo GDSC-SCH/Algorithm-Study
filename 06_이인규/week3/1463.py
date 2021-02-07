@@ -1,15 +1,19 @@
-a = int(input())
-b = a
-step = a//3+1
-step2 = a//2+1
-c = []
+# 시간초과
 
-for i in range(step,0,-1):
-    for j in range(step2,0,-1):
-        print("check",3*i*2*j)
-        if (3*i)*(2*j) + 1 == b:
-            c.append(i+j+1)
-        if (3*i)*(2*j) == b:
-            c.append(i+j)
+llist = []
 
-print(c)
+def make_one(n,cnt):
+    if n == 1:
+        llist.append(cnt)
+        return
+    if n < 1:
+        return
+    if n % 3 == 0:
+        make_one(n//3,cnt+1)
+    if n % 2 == 0:
+        make_one(n//2,cnt+1)
+    make_one(n-1,cnt+1)
+
+n = int(input())
+make_one(n,0)
+print(min(llist))
