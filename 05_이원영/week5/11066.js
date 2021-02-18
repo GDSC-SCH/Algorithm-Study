@@ -26,7 +26,6 @@ process.stdin.on('end', () => {
 		const N = argv.getNumber();
 		const novel = new Array(N);
 		for (let n = 0; n < N; n++) novel[n] = argv.getNumber();
-
 		console.log(solution(novel));
 	}
 });
