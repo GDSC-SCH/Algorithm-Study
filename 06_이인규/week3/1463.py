@@ -1,19 +1,15 @@
-# 시간초과
+import math
 
-llist = []
+lst = []
+N =int(input())
 
-def make_one(n,cnt):
-    if n == 1:
-        llist.append(cnt)
-        return
-    if n < 1:
-        return
-    if n % 3 == 0:
-        make_one(n//3,cnt+1)
-    if n % 2 == 0:
-        make_one(n//2,cnt+1)
-    make_one(n-1,cnt+1)
+x_range = int(math.log(N,3)+1)
+y_range = int(math.log(N,2)+1)
 
-n = int(input())
-make_one(n,0)
-print(min(llist))
+for x in range(x_range):
+    for y in range(y_range):
+        toss = 3**x * 2**y
+        if toss <= N:
+            lst.append(N-toss+x+y)
+
+print(min(lst))

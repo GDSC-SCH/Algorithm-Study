@@ -1,22 +1,18 @@
-# 메모리초과...
+def check_weight(max_num, index_number, left, right):
+    if max_num == index_number:
+        return 0
 
-def check(sum,num):
-    if num == -1:
-        chk.append(sum)
-        return
-    check(sum + lst1[num],num-1)
-    check(sum - lst1[num],num-1)
-
-lst1_num = int(input())
-lst1 = list(map(int,input().split()))
+lst = []
+max_num = int(input())
+ball_list = list(map(int,input().split()))
 int(input())
-lst2 = list(map(int,input().split()))
-chk = []
+check_list = list(map(int,input().split()))
+check_weight(max_num,0 , 0, 0)
 
-check(0,lst1_num-1)
-
-for i in lst2:
-    if i in chk:
-        print("Y",end=" ")
+for i in check_list:
+    if i in lst:
+        print('Y',end=' ')
     else:
-        print("N",end=" ")
+        print('N',end=' ')
+
+print(lst)
