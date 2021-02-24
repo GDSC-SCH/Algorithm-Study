@@ -1,21 +1,14 @@
-# 시간초과
-
-def money(n,cnt):
-    for i in kinds:
-        while 1:
-            if n >= i:
-                n -= i
-                cnt += 1
-            else:
-                break
-    return cnt
-
 a,b = map(int,input().split())
-kinds = []
+lst = []
+cnt = 0
 
 for _ in range(a):
-    kinds.append(int(input()))
+    lst.append(int(input()))
 
-kinds.reverse()
+lst.reverse()
 
-print(money(b,0))
+for i in lst:
+    cnt += b//i
+    b = b%i
+
+print(cnt)

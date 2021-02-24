@@ -1,36 +1,24 @@
-c = []
-d = []
+import sys
 
-for _ in range(int(input())):
-    a = int(input())
-    c.append(a)
-    d.append(a)
+N = int(sys.stdin.readline())
+lst = [int(sys.stdin.readline()) for _ in range(N)]
 
-print(round(sum(c)//len(c),0))
+print("%.f" % (sum(lst)/N))
 
-cnt = len(c)//2
+lst.sort()
 
-for _ in range(cnt):
-    d.remove(max(d))
-    d.remove(min(d))
+print(lst[N//2])
 
-print(*d)
+import collections
 
-count = 0; win = 0; e = []
-for i in c:
-    count = c.count(i)
-    if count > win:
-        win = count
-        del e[0:len(e)-1]
-        e.append(i)
-    elif count == win:
-        e.append(i)
+collect = collections.Counter(lst).most_common()
 
-k = list(set(e))
-k.sort()
-
-if len(k) > 1:
-    print(k[1])
+if len(collect) > 1:
+    if collect[0][1] == collect[1][1]:
+        print(collect[1][0])
+    else:
+        print(collect[0][0])
 else:
-    print(*k)
-print(max(c)-min(c))
+    print(lst[0])
+
+print(lst[N-1] - lst[0])

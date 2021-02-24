@@ -1,18 +1,10 @@
-# 시간초과
+lst = []
 
-c = []
+for i in range(int(input())):
+    a,b = map(str,input().split())
+    lst.append([int(a)+i/1000000,b])
 
-def bble(c):
-    for _ in range(len(c)):
-        for i in range(len(c)-1):
-            if c[i][0] > c[i+1][0]:
-                c[i], c[i+1] = c[i+1], c[i]
+lst.sort()
 
-for _ in range(int(input())):
-	a,b = map(str,input().split())
-	c.append([int(a),b])
-
-bble(c)
-
-for i in range(len(c)):
-	print(c[i][0],c[i][1])
+for i in range(len(lst)):
+    print(int(lst[i][0]),lst[i][1])
