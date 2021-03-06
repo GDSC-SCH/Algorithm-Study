@@ -1,30 +1,31 @@
 import sys
 import heapq
-
 input = sys.stdin.readline
 
-V, E = map(int, input().split())
-K = int(input())
-edges = [dict() for _ in range(V+1)]
+n = int(input())
+m = int(input())
+edges = [dict() for _ in range(n+1)]
 
-for _ in range(E):
+for _ in range(m):
     u, v, w = map(int, input().split())
     if v in edges[u]:
         edges[u][v] = min(edges[u][v], w)
     else:
         edges[u][v] = w
 
+S, E = map(int, input().split())
 inf = float('inf')
-min_dist = [inf] * (V+1)
-min_dist[K] = 0
+
+min_dist = [inf] * (n+1)
+min_dist[S] = 0
+past = [0] * (n+1)
 
 heap = []
-heapq.heappush(heap, (0, K))
+heapq.heappush(heap, (0, S))
 
 while heap:
     cur_dist, cur_node = heapq.heappop(heap)
 
-    # 최단 경로보다 길면 다른 노드로 가는 경로도 현재의 최단경로로 계산하면 되니까 볼 필요가 없음
     if min_dist[cur_node] < cur_dist:
         continue
 
@@ -32,8 +33,15 @@ while heap:
         next_d = cur_dist + edges[cur_node][next_node]
         if next_d < min_dist[next_node]:
             min_dist[next_node] = next_d
-            # 최단거리가 업데이트 됐으므로 해당하는 노드들 다시 계산
+            past[next_node] = cur_node
             heapq.heappush(heap, (next_d, next_node))
 
-for i in min_dist[1:]:
-    print(i if i != inf else 'INF')
+output = [E]
+while True:
+    output.insert(0, past[output[0]])
+    if output[0] == S:
+        break
+
+print(min_dist[E])
+print(len(output))
+print(' '.join(map(str, output)))
