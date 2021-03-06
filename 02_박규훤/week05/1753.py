@@ -9,7 +9,10 @@ edges = [dict() for _ in range(V+1)]
 
 for _ in range(E):
     u, v, w = map(int, input().split())
-    edges[u][v] = w
+    if v in edges[u]:
+        edges[u][v] = min(edges[u][v], w)
+    else:
+        edges[u][v] = w
 
 inf = float('inf')
 min_dist = [inf] * (V+1)
