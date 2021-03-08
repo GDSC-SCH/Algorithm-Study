@@ -1,21 +1,15 @@
-# 시간초과
+import sys
 
-input()
-N_list = list(map(int,input().split()))
-input()
-M_list = list(map(int,input().split()))
+lst1 = []
+lst2 = []
 
-M_list.sort()
+def check(i):
+    return int(i in lst1)
 
-N_index = 0
-M_index = 0
+sys.stdin.readline()
+lst1 = set(list(map(int,sys.stdin.readline().split())))
+sys.stdin.readline()
+lst2 = list(map(int,sys.stdin.readline().split()))
 
-while N_index != (len(N_list)):
-    if N_list[N_index] == M_list[M_index]:
-        print(1)
-        N_index += 1
-    elif N_list[N_index] > M_list[M_index]:
-        M_index += 1
-    else:
-        print(0)
-        M_index += 1
+for i in lst2:
+    print(check(i))
